@@ -63,6 +63,8 @@
   .rating-row{display:flex;align-items:center;gap:6px;margin-top:12px;justify-content:center}
   .rating-stars{color:#F5A623;font-size:14px;letter-spacing:1px}
   .rating-text{font-family:var(--font-body);font-size:13px;color:#666;font-weight:500}
+  .hero-host-image{width:100%;max-width:300px;margin:20px auto 0;border-radius:20px;overflow:hidden}
+  .host-photo{width:100%;height:auto;display:block;object-fit:cover;object-position:top center;border-radius:20px}
 
   /* SECTIONS */
   section{padding:100px 40px}
@@ -77,7 +79,8 @@
   .tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
   .tag{background:var(--lav);color:#fff;padding:6px 18px;border-radius:20px;font-size:.85rem;font-weight:500}
   .host-box{background:#fff;border-radius:24px;padding:40px;box-shadow:0 8px 40px rgba(107,63,138,.12);text-align:center}
-  .ha{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--lav-dp),var(--lav));margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:2.2rem;color:#fff;font-style:italic}
+  .host-avatar{width:90px;height:90px;border-radius:50%;overflow:hidden;margin:0 auto 20px}
+  .host-avatar-img{width:100%;height:100%;object-fit:cover;object-position:top center}
   .hn{font-family:var(--font-heading);font-size:1.5rem;color:var(--td);margin-bottom:8px}
   .hr{font-size:.9rem;color:var(--tl);margin-bottom:20px;font-weight:500}
   .hq{font-size:.95rem;color:var(--tm);line-height:1.7;font-style:italic}
@@ -99,6 +102,11 @@
   .badge.new{background:#d4f0e8;color:#1a7a52}
   .pbtn{width:46px;height:46px;border-radius:50%;background:var(--lav-dp);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;color:#fff}
   .pbtn:hover{background:var(--lav-d);transform:scale(1.08)}
+  .episode-excerpt{margin:0}
+  .episode-full-text{margin-top:12px}
+  .episode-full-text[hidden]{display:none}
+  .toggle-description{background:none;border:none;padding:0;margin-top:10px;font-family:var(--font-body);font-size:13px;font-weight:600;color:#9B7FC7;cursor:pointer;letter-spacing:.02em;transition:opacity .15s ease}
+  .toggle-description:hover{opacity:.7}
 
   /* SUBSCRIBE */
   #subscribe{background:linear-gradient(135deg,var(--lav-dp) 0%,#9b3da5 100%);color:#fff}
@@ -174,7 +182,6 @@
 <section class="hero" id="home">
   <div class="hero-inner">
     <div>
-      <span class="hero-tag"><i data-lucide="mic"></i> Podcast</span>
       <h1>Link in Bio –<br><em class="title-italic">Der Family Chat</em></h1>
       <p class="hero-sub">mit Yasmin Polat</p>
       <p class="hero-desc">Yasmin klickt mit ihren Gästen auf den Link zur eigenen Bio und fragt, was die Kindheit mit dem Heute zu tun hat. Manchmal auch prominent. Manchmal ganz nah. Immer ehrlich.</p>
@@ -196,6 +203,9 @@
           <span class="rating-stars">★★★★★</span>
           <span class="rating-text">5,0 · 35 Bewertungen</span>
         </div>
+        <div class="hero-host-image">
+          <img src="yasmin-polat-header.jpg" alt="Yasmin Polat" class="host-photo">
+        </div>
       </div>
     </div>
   </div>
@@ -211,15 +221,11 @@
         <p>Yasmin Polat klickt gemeinsam mit ihren Gästen auf den Link zur eigenen Bio – und fragt per Sprachnachricht oder Interview, welche Spuren die Kindheit im Erwachsenenleben hinterlassen hat.</p>
         <p>Manchmal persönliche Geschichten, manchmal große Familiensagas, manchmal aktuelle News. Immer geht es darum, ehrlich hinzuschauen – woher wir kommen und warum wir so sind, wie wir sind.</p>
         <p>Herzlich willkommen im Family Chat. Ihr seid Admins. &lt;3</p>
-        <div class="tags">
-          <span class="tag">Kultur</span>
-          <span class="tag">Gesellschaft</span>
-          <span class="tag">Familie</span>
-          <span class="tag">Biografie</span>
-        </div>
       </div>
       <div class="host-box">
-        <div class="ha">Y</div>
+        <div class="host-avatar">
+          <img src="yasmin-polat-header.jpg" alt="Yasmin Polat" class="host-avatar-img">
+        </div>
         <div class="hn">Yasmin Polat</div>
         <div class="hr">Host &amp; Autorin</div>
         <p class="hq">"Wenn wir ehrlich auf unsere Herkunft schauen, verstehen wir uns und andere viel besser."</p>
@@ -240,15 +246,22 @@
     </div>
     <div class="ep-grid">
 
-      <div class="ep-card">
+      <div class="ep-card episode-card">
         <div class="ep-card-inner">
           <div class="epi">
             <div class="episode-number">Folge #5</div>
-            <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
-              <h3 class="episode-title">Privater Browser</h3>
-              <span class="badge new">Neu</span>
+            <h3 class="episode-title">Privater Browser</h3>
+            <div class="episode-description">
+              <p class="episode-excerpt">Swampy Louisiana-Vibes, brandaktuelle Trends &amp; Privatinfos – und Yasmin liest aus ihrem Buch "Im Prinzip ist alles okay" vor.</p>
+              <div class="episode-full-text" hidden>
+                <p>Hey fam, kurzer Zwischenruf aus der Vergangenheit! Diese Folge ist voller swampy Louisiana-Vibes, brandaktuellen Trends, sowie Privatinfos.</p>
+                <p>Es geht um das ultimative Kita-Essens-Duell: Senfeier vs. Milchreis und welche Charakterzüge man daraus ableiten kann.</p>
+                <p>Um einen TikTok Trend, bei dem Frauen berichten, dass sie den aggressiven Mann in sich erkannt haben.</p>
+                <p>Ich lese sogar eine Stelle aus meinem Buch "Im Prinzip ist alles okay" vor.</p>
+                <p>Folgt rein, abonniert den Podcast, fügt mehr Menschen dem Family Chat hinzu. Ihr seid doch Admins. &lt;3</p>
+              </div>
             </div>
-            <p class="episode-description">Swampy Louisiana-Vibes, brandaktuelle Trends &amp; Privatinfos – und Yasmin liest aus ihrem Buch "Im Prinzip ist alles okay" vor.</p>
+            <button class="toggle-description" aria-expanded="false">Mehr lesen →</button>
             <div class="ep-meta">
               <span class="meta-item"><i data-lucide="calendar"></i>Gestern</span>
               <span class="meta-item"><i data-lucide="clock"></i>11 Min.</span>
@@ -258,14 +271,20 @@
         </div>
       </div>
 
-      <div class="ep-card">
+      <div class="ep-card episode-card">
         <div class="ep-card-inner">
           <div class="epi">
             <div class="episode-number">Folge #4</div>
-            <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
-              <h3 class="episode-title">Büchse der Lyoner – mit Anıl</h3>
+            <h3 class="episode-title">Büchse der Lyoner – mit Anıl</h3>
+            <div class="episode-description">
+              <p class="episode-excerpt">Über Essen als Kindheitserinnerung, Familienrituale – und was Lyoner-Wurst mit Identität zu tun hat.</p>
+              <div class="episode-full-text" hidden>
+                <p>Hey fam! Hier kommt ein brutzelndes Interviewsteak für euch, ich durfte mit dem wunderbaren Fikri Anıl Altıntaş sprechen.</p>
+                <p>Es geht unter anderem um bürgerliche Rückzugsorte im Käsekuchen, entlassene Elternvorbilder und wie Anıl mit dem Akkuschrauber in einen Bohrrausch geraten ist. Außerdem eine LinkinBio-Exklusiv-News und die neue Rubrik "Relativ Relatable", zur Premiere mit dem Begriff BACKFISCH.</p>
+                <p>Drückt auf "Folgen" und gebt gern eine Bewertung ab! &lt;3</p>
+              </div>
             </div>
-            <p class="episode-description">Über Essen als Kindheitserinnerung, Familienrituale – und was Lyoner-Wurst mit Identität zu tun hat.</p>
+            <button class="toggle-description" aria-expanded="false">Mehr lesen →</button>
             <div class="ep-meta">
               <span class="meta-item"><i data-lucide="calendar"></i>17. Feb. 2026</span>
               <span class="meta-item"><i data-lucide="clock"></i>50 Min.</span>
@@ -275,15 +294,65 @@
         </div>
       </div>
 
-      <div class="ep-card">
+      <div class="ep-card episode-card">
+        <div class="ep-card-inner">
+          <div class="epi">
+            <div class="episode-number">Folge #3</div>
+            <h3 class="episode-title">Auf engstem Raum – mit Polly</h3>
+            <div class="episode-description">
+              <p class="episode-excerpt">Hallo *fam,* hier sind wir (schon) wieder! Im Séparée auf einem McDonald's-Geburtstag, in meinem Badezimmer beim Cranberries singen.</p>
+              <div class="episode-full-text" hidden>
+                <p>Hallo *fam,* hier sind wir (schon) wieder! Eure Nachrichten und Kommentare haben mich motiviert, asap die #3 fertig zu stellen.</p>
+                <p>In dieser Folge bewegen wir uns in verschiedenen Räumen: Im Séparée auf einem McDonald's-Geburtstag, in meinem Badezimmer beim Cranberries singen, mit Polly überall, nur nicht in Zelten beim Campen oder in ihren Tagebüchern. (Privatsphäre!)</p>
+                <p>Außerdem erfahrt ihr, wer meine ultra-prominenten Traumgäste für LIB wären.</p>
+                <p>Poliana Baumgarten ist Regisseurin und Videojournalistin, u.a. für die ZEIT, Dokumentarfilmerin und auch sie war mal ein Kind – in einer Favela in Brasilien und in Deutschland.</p>
+              </div>
+            </div>
+            <button class="toggle-description" aria-expanded="false">Mehr lesen →</button>
+            <div class="ep-meta">
+              <span class="meta-item"><i data-lucide="calendar"></i>1. Feb. 2026</span>
+            </div>
+          </div>
+          <button class="pbtn"><i data-lucide="play"></i></button>
+        </div>
+      </div>
+
+      <div class="ep-card episode-card">
+        <div class="ep-card-inner">
+          <div class="epi">
+            <div class="episode-number">Folge #2</div>
+            <h3 class="episode-title">Externer Link – Die Beckhams</h3>
+            <div class="episode-description">
+              <p class="episode-excerpt">Sonderfolgen-Alert, Promi-Edition! Brooklyn Peltz-Beckham hat in seiner Insta-Story ein Statement gepostet, das es in sich hat.</p>
+              <div class="episode-full-text" hidden>
+                <p>Sonderfolgen-Alert, Promi-Edition! Eigentlich war die Folge zu den Beckhams für viel später geplant, aber dann hat Brooklyn Peltz-Beckham in seiner Insta-Story ein Statement gepostet, das es in sich hat. Also hier für euch, zum Mitreden: Folge #2 – Der externe Link zu den Beckhams!</p>
+                <p>Kommentiert gern eure Erfahrungen, schreibt mir eine Mail oder DM, wenn ihr mein Gast sein wollt. Und folgt dem Podcast, teilt ihn in euren Family Chats oder wo auch immer.</p>
+                <p>Musik: Descript — Autorin / Producerin: Yasmin Polat</p>
+              </div>
+            </div>
+            <button class="toggle-description" aria-expanded="false">Mehr lesen →</button>
+            <div class="ep-meta">
+              <span class="meta-item"><i data-lucide="calendar"></i>21. Jan. 2026</span>
+            </div>
+          </div>
+          <button class="pbtn"><i data-lucide="play"></i></button>
+        </div>
+      </div>
+
+      <div class="ep-card episode-card">
         <div class="ep-card-inner">
           <div class="epi">
             <div class="episode-number">Folge #1</div>
-            <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
-              <h3 class="episode-title">Steine umdrehen – mit Sammy</h3>
-              <span class="badge">Startepisode</span>
+            <h3 class="episode-title">Steine umdrehen – mit Sammy</h3>
+            <div class="episode-description">
+              <p class="episode-excerpt">Die allererste Folge! Über den Suizid von Sammys Mutter, Kontaktabbruch – und warum sie auf Yasmin wie eine funkelnde Diskokugel wirkt.</p>
+              <div class="episode-full-text" hidden>
+                <p>Herzlich Willkommen zur allerersten Folge "Link in Bio – Der Family Chat" &lt;3</p>
+                <p>Ich spreche mit Sammy über (fast) alles: Vom Suizid ihrer Mutter, bis hin zum Kontaktabbruch zum Großteil ihrer Herkunftsfamilie. Außerdem erfahrt ihr, inwiefern sie auf mich wie eine funkelnde Discokugel wirkt und warum sie gerade eine Weiterbildung zur Trauerbegleiterin macht.</p>
+                <p>CW: Suizid, psychische Erkrankungen.</p>
+              </div>
             </div>
-            <p class="episode-description">Die allererste Folge! Über den Suizid von Sammys Mutter, Kontaktabbruch – und warum sie auf Yasmin wie eine funkelnde Diskokugel wirkt.</p>
+            <button class="toggle-description" aria-expanded="false">Mehr lesen →</button>
             <div class="ep-meta">
               <span class="meta-item"><i data-lucide="calendar"></i>18. Jan. 2026</span>
               <span class="meta-item"><i data-lucide="clock"></i>~45 Min.</span>
@@ -305,32 +374,32 @@
     <p class="sd">Folgt dem Family Chat auf eurer liebsten Plattform – damit ihr immer als Erste dabei seid, wenn eine neue Folge erscheint. Ihr seid Admins. &lt;3</p>
     <div class="sub-g">
       <a href="https://open.spotify.com" target="_blank" class="platform-card">
-        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#1DB954"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
         <span>Spotify</span>
         <div class="pd">Jetzt folgen</div>
       </a>
       <a href="https://podcasts.apple.com" target="_blank" class="platform-card">
-        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#9933CC"><path d="M5.34 0A5.328 5.328 0 0 0 0 5.34v13.32A5.328 5.328 0 0 0 5.34 24h13.32A5.328 5.328 0 0 0 24 18.66V5.34A5.328 5.328 0 0 0 18.66 0zm6.525 3.07c2.84.07 5.48 1.64 6.973 4.148l.04.07h-1.87a5.404 5.404 0 0 0-5.14-2.81h-.046a5.403 5.403 0 0 0-5.118 2.814H4.85a7.504 7.504 0 0 1 7.016-4.223zm-.468 2.87a5.105 5.105 0 1 1 0 10.21 5.105 5.105 0 0 1 0-10.21zm0 1.644a3.46 3.46 0 1 0 0 6.92 3.46 3.46 0 0 0 0-6.92zm-1.102 1.55c.37 0 .67.3.67.67v2.49c0 .37-.3.67-.67.67a.67.67 0 0 1-.67-.67v-2.49c0-.37.3-.67.67-.67zm2.07 0c.37 0 .67.3.67.67v2.49c0 .37-.3.67-.67.67a.67.67 0 0 1-.67-.67v-2.49c0-.37.3-.67.67-.67z"/></svg>
+        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white"><path d="M5.34 0A5.328 5.328 0 0 0 0 5.34v13.32A5.328 5.328 0 0 0 5.34 24h13.32A5.328 5.328 0 0 0 24 18.66V5.34A5.328 5.328 0 0 0 18.66 0zm6.525 3.07c2.84.07 5.48 1.64 6.973 4.148l.04.07h-1.87a5.404 5.404 0 0 0-5.14-2.81h-.046a5.403 5.403 0 0 0-5.118 2.814H4.85a7.504 7.504 0 0 1 7.016-4.223zm-.468 2.87a5.105 5.105 0 1 1 0 10.21 5.105 5.105 0 0 1 0-10.21zm0 1.644a3.46 3.46 0 1 0 0 6.92 3.46 3.46 0 0 0 0-6.92zm-1.102 1.55c.37 0 .67.3.67.67v2.49c0 .37-.3.67-.67.67a.67.67 0 0 1-.67-.67v-2.49c0-.37.3-.67.67-.67zm2.07 0c.37 0 .67.3.67.67v2.49c0 .37-.3.67-.67.67a.67.67 0 0 1-.67-.67v-2.49c0-.37.3-.67.67-.67z"/></svg>
         <span>Apple Podcasts</span>
         <div class="pd">Abonnieren</div>
       </a>
       <a href="https://podcasts.google.com" target="_blank" class="platform-card">
-        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#4285F4"><path d="M12 0C5.372 0 0 5.373 0 12s5.372 12 12 12 12-5.373 12-12S18.628 0 12 0zm-1.2 15.6a1.2 1.2 0 1 1-2.4 0V8.4a1.2 1.2 0 0 1 2.4 0zm4.8-1.2a1.2 1.2 0 1 1-2.4 0V9.6a1.2 1.2 0 0 1 2.4 0zm-8.4 0a1.2 1.2 0 1 1-2.4 0V10.8a1.2 1.2 0 0 1 2.4 0zm12 0a1.2 1.2 0 1 1-2.4 0V10.8a1.2 1.2 0 0 1 2.4 0z"/></svg>
+        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white"><path d="M12 0C5.372 0 0 5.373 0 12s5.372 12 12 12 12-5.373 12-12S18.628 0 12 0zm-1.2 15.6a1.2 1.2 0 1 1-2.4 0V8.4a1.2 1.2 0 0 1 2.4 0zm4.8-1.2a1.2 1.2 0 1 1-2.4 0V9.6a1.2 1.2 0 0 1 2.4 0zm-8.4 0a1.2 1.2 0 1 1-2.4 0V10.8a1.2 1.2 0 0 1 2.4 0zm12 0a1.2 1.2 0 1 1-2.4 0V10.8a1.2 1.2 0 0 1 2.4 0z"/></svg>
         <span>Google Podcasts</span>
         <div class="pd">Abonnieren</div>
       </a>
       <a href="https://www.youtube.com" target="_blank" class="platform-card">
-        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#FF0000"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
         <span>YouTube</span>
         <div class="pd">Kanal folgen</div>
       </a>
       <a href="https://pocketcasts.com" target="_blank" class="platform-card">
-        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#F43E37"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 4.8a7.2 7.2 0 0 1 7.2 7.2h-2.4A4.8 4.8 0 0 0 12 7.2V4.8zm0 3.6a3.6 3.6 0 0 1 3.6 3.6H13.2a1.2 1.2 0 0 0-1.2-1.2V8.4zm0 3.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zm-4.8-4.8v2.4A4.8 4.8 0 0 0 12 19.2v2.4A7.2 7.2 0 0 1 4.8 12H7.2z"/></svg>
+        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 4.8a7.2 7.2 0 0 1 7.2 7.2h-2.4A4.8 4.8 0 0 0 12 7.2V4.8zm0 3.6a3.6 3.6 0 0 1 3.6 3.6H13.2a1.2 1.2 0 0 0-1.2-1.2V8.4zm0 3.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zm-4.8-4.8v2.4A4.8 4.8 0 0 0 12 19.2v2.4A7.2 7.2 0 0 1 4.8 12H7.2z"/></svg>
         <span>Pocket Casts</span>
         <div class="pd">Folgen</div>
       </a>
       <a href="https://overcast.fm" target="_blank" class="platform-card">
-        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#FC7E0F"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.001 4.8a7.2 7.2 0 0 1 7.2 7.2 7.2 7.2 0 0 1-7.2 7.2 7.2 7.2 0 0 1-7.2-7.2 7.2 7.2 0 0 1 7.2-7.2zm0 2.4a4.8 4.8 0 0 0-4.8 4.8 4.8 4.8 0 0 0 4.8 4.8 4.8 4.8 0 0 0 4.8-4.8 4.8 4.8 0 0 0-4.8-4.8zm0 2.4a2.4 2.4 0 0 1 2.4 2.4 2.4 2.4 0 0 1-2.4 2.4 2.4 2.4 0 0 1-2.4-2.4 2.4 2.4 0 0 1 2.4-2.4z"/></svg>
+        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.001 4.8a7.2 7.2 0 0 1 7.2 7.2 7.2 7.2 0 0 1-7.2 7.2 7.2 7.2 0 0 1-7.2-7.2 7.2 7.2 0 0 1 7.2-7.2zm0 2.4a4.8 4.8 0 0 0-4.8 4.8 4.8 4.8 0 0 0 4.8 4.8 4.8 4.8 0 0 0 4.8-4.8 4.8 4.8 0 0 0-4.8-4.8zm0 2.4a2.4 2.4 0 0 1 2.4 2.4 2.4 2.4 0 0 1-2.4 2.4 2.4 2.4 0 0 1-2.4-2.4 2.4 2.4 0 0 1 2.4-2.4z"/></svg>
         <span>Overcast</span>
         <div class="pd">Abonnieren</div>
       </a>
@@ -417,6 +486,22 @@
         lucide.createIcons({ el: this });
         this.style.background = '';
       }, 2000);
+    });
+  });
+  document.querySelectorAll('.toggle-description').forEach(button => {
+    button.addEventListener('click', () => {
+      const card = button.closest('.episode-card');
+      const fullText = card.querySelector('.episode-full-text');
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        fullText.hidden = true;
+        button.setAttribute('aria-expanded', 'false');
+        button.textContent = 'Mehr lesen →';
+      } else {
+        fullText.hidden = false;
+        button.setAttribute('aria-expanded', 'true');
+        button.textContent = 'Weniger anzeigen ↑';
+      }
     });
   });
   lucide.createIcons();
